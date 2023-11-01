@@ -1,0 +1,21 @@
+---
+title: "Linshen Cai"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+Master student in Biostatistics <br>
+Columbia University Mailman School of Public Health
+
+## About 
+I received a BA in Economic & mathematics from [Boston University](https://www.bu.edu/) in 2023. I joined [Mailman School of Public Health at Columbia University ](https://www.publichealth.columbia.edu) as an Master Student in Fall 2023. Here is [link](./resources/Linshen Cai.pdf) to CV page.
+
+## Contact Information
+
+Linshen Cai ,[Department of Biostatistics](http://www.mailman.columbia.edu/academic-departments/biostatistics)  
+[Columbia Mailman School of Public Health](http://www.mailman.columbia.edu/)  
+722 West 168th Street
+New York, New York 10032
+
+Email:lc3807@cumc.columbia.edu

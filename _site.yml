@@ -1,0 +1,16 @@
+name: "Yay internet!"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "CV"
+      href: ./resources/Linshen Cai.pdf
+    - icon: fa-brands fa-linkedin
+      href: https://www.linkedin.com/in/linshen-8455681b6/?locale=en_US
+    - icon: fa-envelope fa-lg
+      href: mailto:<lc3807@cumc.columbia.edu>
+    - icon: fa-github fa-lg
+      href: http://github.com/LinshenC/
+output:
+  html_document:
+    theme: flatly
