@@ -1,0 +1,90 @@
+---
+title: "Linshen Cai"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+## Problem 2- flexdashboard
+
+```{r setup, include=FALSE}
+# Load necessary package
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+```{r}
+#We want to find the total annual precipitation in 2010 at each monitoring station to study the precipitation in each area of New York State.
+
+data("ny_noaa")
+ny_prcp_2010 = ny_noaa |> 
+  na.omit() |> 
+  separate(date, into = c("year", "month", "day"), sep = "-") |> 
+  mutate(date = paste0(year, '-', month)) |> 
+  filter(year == 2010 ) |> 
+  group_by(id) |> 
+  summarise(total_prcp = sum(prcp))
+
+ny_prcp_2010 = ny_prcp_2010 |> 
+  mutate(id = fct_reorder(id, total_prcp))
+
+plot_ly(data = ny_prcp_2010, x = ~id, y = ~total_prcp, type = "bar", color = ~id) |> 
+  layout(
+    title = "Bar plot for precipitation in each monitoring station of New York State in 2010 ",
+    xaxis = list(title = "Weath station ID"),
+    yaxis = list(title = "Precipitation(mm)")
+  )
+```
+
+Comments : We find, in NY state, the location where monitoring station USC00307799 in has highest precipitation which is 15.318k mm. And the location where monitoring station USC00306820 in has lowest precipitation which is only 48 mm.
+
+```{r}
+# We want to find the average snowfall through 2010 at each monitoring station to study snowfall in each area of New York State.
+
+ny_snow_2010 = ny_noaa |> 
+  na.omit() |> 
+  separate(date, into = c("year", "month", "day"), sep = "-") |> 
+  mutate(date = paste0(year, '-', month)) |> 
+  filter(year == 2010 ) |> 
+  group_by(id) |> 
+  summarise(mean_snow = mean(snow,na.rm = T), mean_snwd = mean(snwd,na.rm = T))
+
+ny_snow_2010 = ny_snow_2010 |> 
+  mutate(id = fct_reorder(id, mean_snow))
+
+  plot_ly(data = ny_snow_2010, x = ~id, y = ~mean_snow, color = ~id, type = "scatter", colors = "viridis", alpha = 0.5) %>%
+  layout(
+    title = "Scartter Plot for Average Snowfall in 2010",
+    xaxis = list(title = "Weath station ID"),
+    yaxis = list(title = "Snowfall (mm)")
+  )
+```
+
+Comments: We find weather station with ID USC003087 has highest average snowfall in 2010 which is 103.7222mm. There are 9 weather stations that average snowfall throughout the year is 0.
+
+```{r}
+# In the chart, we want to study the relationship between average snow depth and annual maximum and minimum temperature in 2010.
+ny_temp_snwd_2010 = ny_noaa |> 
+  na.omit() |> 
+  separate(date, into = c("year", "month", "day"), sep = "-") |> 
+  filter(year == 2010) |> 
+  group_by(id) |> 
+  summarise(
+    mean_snwd = mean(snwd, na.rm = TRUE),
+    mean_tmax = mean(as.numeric(tmax), na.rm = TRUE),
+    mean_tmin = mean(as.numeric(tmin), na.rm = TRUE)
+  )
+
+ny_temp_snwd_2010 |> 
+  mutate(text_label = str_c("average snow depth:", mean_snwd, "\nweath station:", id)) |> 
+  plot_ly(x = ~mean_tmin, y = ~mean_tmax, color = ~mean_snwd,
+        type = "scatter", mode = "markers", colors = "viridis", text = ~text_label) |> 
+  layout(
+    title = "Scatter plot for average minimum temp and average maximum temp with average snow depth in 2010",
+    xaxis = list(title = "average minimum temp"),
+    yaxis = list(title = "average maximum temp")
+  )
+```
+
+Comments: Based on the plot, we can roughly be told that the lower the annual average maximum and minimum temperatures at an weather station, the thicker its annual average snow depth. Among all weather station in NY state, the weather station USC00303087 have deepest snow depth which is 323.11mm. Most area in NY state have average annual snow depth less than 150mm.

@@ -20,16 +20,6 @@ New York, New York 10032
 
 Email: lc3807@cumc.columbia.edu
 
-## Problem 2- flexdashboard
 
-```{r setup, include=FALSE}
-# Load necessary package
-library(tidyverse)
-library(p8105.datasets)
-```
-
-```{r}
-
-```
 
 
