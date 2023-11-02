@@ -3,6 +3,8 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
+    - text: "Experience"
+      href: Experience.html
     - text: "CV"
       href: ./resources/Linshen Cai.pdf
     - icon: fa-brands fa-linkedin

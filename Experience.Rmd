@@ -1,0 +1,36 @@
+---
+title: "Main experience"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+
+
+# EDUCATION
+
+Rutgers University (transferred before major declaration)                                       Sep. 2018 – Jul. 2020
+
+Boston University, BA in Economics & Mathematics                                                Sep. 2020 – Jan. 2023
+
+# PROFESSIONAL EXPERIENCES
+
+As a Data Analyst Summer Intern at MobiDrop, Inc.                                                 May. 2022 – Jul. 2022
+
+As a CHN Data Analyst Intern at Shanghai Tianhua Group.                                           Nov. 2020 – Mar. 2021
+
+As a Investment Research Analyst Intern at Ruitong Investment Management Co.,Ltd.                 Apr. 2020 – Jun. 2020
+
+# RESEARCH PROJECTS
+
+Bond Price Prediction with Machine & Deep Learning
+
+# CO-CURRICULAR ACTIVITIES
+
+Minister of Commerce – BUCSSA (Boston University Chinese Students and Scholars Association)      May. 2021 – Jan.2023
+
+Core member – The Dao Lab (Chinese Philosophical Taoism Society)                                 June.2022 – May,2023
+
+
+For detials, please go to my [CV](./resources/Linshen Cai.pdf)
