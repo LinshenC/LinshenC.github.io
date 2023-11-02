@@ -14,7 +14,7 @@ library(p8105.datasets)
 library(plotly)
 ```
 
-```{r}
+```{r, message=FALSE, warning = FALSE}
 #We want to find the total annual precipitation in 2010 at each monitoring station to study the precipitation in each area of New York State.
 
 data("ny_noaa")
@@ -39,7 +39,7 @@ plot_ly(data = ny_prcp_2010, x = ~id, y = ~total_prcp, type = "bar", color = ~id
 
 Comments : We find, in NY state, the location where monitoring station USC00307799 in has highest precipitation which is 15.318k mm. And the location where monitoring station USC00306820 in has lowest precipitation which is only 48 mm.
 
-```{r}
+```{r, message=FALSE}
 # We want to find the average snowfall through 2010 at each monitoring station to study snowfall in each area of New York State.
 
 ny_snow_2010 = ny_noaa |> 
@@ -63,7 +63,7 @@ ny_snow_2010 = ny_snow_2010 |>
 
 Comments: We find weather station with ID USC003087 has highest average snowfall in 2010 which is 103.7222mm. There are 9 weather stations that average snowfall throughout the year is 0.
 
-```{r}
+```{r, message=FALSE}
 # In the chart, we want to study the relationship between average snow depth and annual maximum and minimum temperature in 2010.
 ny_temp_snwd_2010 = ny_noaa |> 
   na.omit() |> 
@@ -81,7 +81,7 @@ ny_temp_snwd_2010 |>
   plot_ly(x = ~mean_tmin, y = ~mean_tmax, color = ~mean_snwd,
         type = "scatter", mode = "markers", colors = "viridis", text = ~text_label) |> 
   layout(
-    title = "Scatter plot for average minimum temp and average maximum temp with average snow depth in 2010",
+    title = "Scatter plot for average snow depth in 2010",
     xaxis = list(title = "average minimum temp"),
     yaxis = list(title = "average maximum temp")
   )
